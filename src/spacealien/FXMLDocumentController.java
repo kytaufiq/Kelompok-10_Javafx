@@ -1,5 +1,6 @@
 package spacealien;
 
+import java.util.Random;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -75,6 +76,27 @@ public class Rocket {
         exploding = true;
         explosionStep = -1;
     }
+
+   
+
+public class Universe extends GameEntity {
+    private int h, w, r, g, b;
+    private double opacity;
+    private static final Random RAND = new Random();
+
+    public Universe() {
+        super(RAND.nextInt(FXMLDocumentController.WIDTH), 0);
+        w = RAND.nextInt(5) + 1;
+        h = RAND.nextInt(5) + 1;
+        r = RAND.nextInt(100) + 150;
+        g = RAND.nextInt(100) + 150;
+        b = RAND.nextInt(100) + 150;
+        opacity = RAND.nextFloat();
+        if (opacity < 0) opacity *= -1;
+        if (opacity > 0.5) opacity = 0.5;
+    }
+
+
 
     private int distance(int x1, int y1, int x2, int y2) {
         return (int) Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
