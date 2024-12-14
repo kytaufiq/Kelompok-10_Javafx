@@ -255,5 +255,15 @@ public class Universe extends GameEntity {
         gc.fillOval(x, y, w, h);
     }
 
+private int distance(int x1, int y1, int x2, int y2) {
+        return (int) Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+    }
+
+    private Bomb newBomb() {
+        int posX = RAND.nextInt(WIDTH - 60);
+        int posY = 0;
+        return new Bomb(posX, posY, 60, BOMBS_IMG[RAND.nextInt(BOMBS_IMG.length)]);
+    }
+    
 }
 
