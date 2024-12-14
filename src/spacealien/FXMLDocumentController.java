@@ -57,6 +57,31 @@ public class FXMLDocumentController {
 
     private double mouseX;
     private int score;
+    
+    @FXML
+    private Canvas gameCanvas;
+
+    public void initialize() {
+        gc = gameCanvas.getGraphicsContext2D();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e -> run(gc)));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
+        gameCanvas.setOnMouseMoved(e -> mouseX = e.getX());
+        gameCanvas.setOnMouseClicked(this::onMouseClicked);
+        gameCanvas.setOnKeyPressed(this::handleKeyboardInput);
+        setup();
+        gameCanvas.setFocusTraversable(true);
+    }
+
+
+    private void onMouseClicked(MouseEvent e) {
+        if (shots.size() < MAX_SHOTS) shots.add(player.shoot());
+        if (gameOver) {
+            gameOver = false;
+            setup();
+        }
+    }
 
 public abstract class GameEntity {
     protected int x;
