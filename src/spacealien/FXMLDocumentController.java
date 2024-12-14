@@ -120,33 +120,64 @@ public class FXMLDocumentController {
         IntStream.range(0, MAX_BOMBS).mapToObj(i -> this.newBomb()).forEach(Bombs::add);
     }
 
-    
-public abstract class GameEntity {
-    protected int x;
-    protected int y;
-    protected boolean isActive;
+    private void run(GraphicsContext gc) {
+        gc.setFill(Color.grayRgb(20));
+        gc.fillRect(0, 0, WIDTH, HEIGHT);
+        gc.setTextAlign(TextAlignment.CENTER);
+        gc.setFont(Font.font(20));
+        gc.setFill(Color.WHITE);
+        gc.fillText("Score: " + score, 60, 20);
 
-    public GameEntity(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.isActive = true;
+        if (gameOver) {
+            gc.setFont(Font.font(35));
+            gc.setFill(Color.YELLOW);
+            gc.fillText("Game Over \n Your Score is: " + score + " \n klik untuk bermain lagi", WIDTH / 2, HEIGHT / 2.5);
+        }
+
+        univ.forEach(universe -> {
+            universe.update();
+            universe.render(gc);
+        });
+        univ.removeIf(universe -> !universe.isActive());
+
+        player.update();
+        player.draw();
+        player.posX = (int) mouseX;
+
+        Bombs.stream().peek(Bomb::update).peek(Bomb::draw).forEach(e -> {
+            if (player.colide(e) && !player.exploding) {
+                player.explode();
+            }
+        });
+
+        for (int i = shots.size() - 1; i >= 0; i--) {
+            Shot shot = shots.get(i);
+            if (shot.posY < 0 || shot.toRemove) {
+                shots.remove(i);
+                continue;
+            }
+            shot.update();
+            shot.draw();
+            for (Bomb bomb : Bombs) {
+                if (shot.colide(bomb) && !bomb.exploding) {
+                    score++;
+                    bomb.explode();
+                    shot.toRemove = true;
+                }
+            }
+        }
+
+        for (int i = Bombs.size() - 1; i >= 0; i--) {
+            if (Bombs.get(i).destroyed) {
+                Bombs.set(i, newBomb());
+            }
+        }
+
+        gameOver = player.destroyed;
+        if (RAND.nextInt(10) > 2) {
+            univ.add(new Universe());
+        }
     }
-        abstract void update();
-    abstract void render(GraphicsContext gc);
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        this.isActive = active;
-    }
-
-    public int getX() { return x; }
-    public int getY() { return y; }
-    public void setX(int x) { this.x = x; }
-    public void setY(int y) { this.y = y; }
-}
 
 public class Rocket {
     int posX, posY, size;
