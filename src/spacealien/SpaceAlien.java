@@ -14,10 +14,10 @@ public class SpaceAlien extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Menu.fxml"));
         Parent root = loader.load();
 
-        // Membuat scene dan menetapkan ukuran
+        
         Scene scene = new Scene(root, 800, 600);
 
-        // Menetapkan scene ke stage
+       
         primaryStage.setScene(scene);
         primaryStage.setTitle("Space Alien Game");
         primaryStage.setResizable(true);
