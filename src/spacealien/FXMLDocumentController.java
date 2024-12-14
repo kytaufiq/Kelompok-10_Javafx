@@ -249,9 +249,6 @@ public class Shot {
     }
 }
 
-
-
-
 public class Universe extends GameEntity {
     private int h, w, r, g, b;
     private double opacity;
@@ -268,7 +265,6 @@ public class Universe extends GameEntity {
         if (opacity < 0) opacity *= -1;
         if (opacity > 0.5) opacity = 0.5;
     }
-
 
     @Override
     void update() {
