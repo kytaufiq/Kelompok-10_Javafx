@@ -111,6 +111,16 @@ public class FXMLDocumentController {
         }
     }
 
+    private void setup() {
+        univ = new ArrayList<>();
+        shots = new ArrayList<>();
+        Bombs = new ArrayList<>();
+        player = new Rocket(WIDTH / 2, HEIGHT - PLAYER_SIZE, PLAYER_SIZE, PLAYER_IMG);
+        score = 0;
+        IntStream.range(0, MAX_BOMBS).mapToObj(i -> this.newBomb()).forEach(Bombs::add);
+    }
+
+    
 public abstract class GameEntity {
     protected int x;
     protected int y;
@@ -244,5 +254,6 @@ public class Universe extends GameEntity {
         gc.setFill(Color.rgb(r, g, b, opacity));
         gc.fillOval(x, y, w, h);
     }
+
 }
 
