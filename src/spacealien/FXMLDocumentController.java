@@ -286,7 +286,7 @@ public class Universe extends GameEntity {
         gc.fillOval(x, y, w, h);
     }
 
-private int distance(int x1, int y1, int x2, int y2) {
+    private int distance(int x1, int y1, int x2, int y2) {
         return (int) Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
@@ -298,8 +298,7 @@ private int distance(int x1, int y1, int x2, int y2) {
     
 }
 
-private void handleKeyboardInput(KeyEvent event) {
-    // Mencegah input keyboard dan menampilkan pesan error
-    event.consume();  // Menahan event agar tidak diproses
-    System.out.println("Error: Keyboard input is not allowed!");  // Tampilkan pesan di konsol
+private void handleKeyboardInput(KeyEvent event) {    
+    event.consume();  
+    System.out.println("Error: Keyboard input is not allowed!");  
 }
