@@ -31,4 +31,17 @@ public abstract class GameEntity {
     public void setY(int y) { this.y = y; }
 }
 
+public class Rocket {
+    int posX, posY, size;
+    boolean exploding, destroyed;
+    Image img;
+    int explosionStep = 0;
+
+    public Rocket(int posX, int posY, int size, Image image) {
+        this.posX = posX;
+        this.posY = posY;
+        this.size = size;
+        img = image;
+    }
+
 
