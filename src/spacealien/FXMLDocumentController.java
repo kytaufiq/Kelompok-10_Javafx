@@ -46,6 +46,18 @@ public class FXMLDocumentController {
             new Image(getClass().getResource("/Assets/10.png").toExternalForm()),
     };
 
+    final int MAX_BOMBS = 10, MAX_SHOTS = MAX_BOMBS * 2;
+    boolean gameOver = false;
+    private GraphicsContext gc;
+
+    Rocket player;
+    List<Shot> shots;
+    List<Universe> univ;
+    List<Bomb> Bombs;
+
+    private double mouseX;
+    private int score;
+
 public abstract class GameEntity {
     protected int x;
     protected int y;
