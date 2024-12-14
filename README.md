@@ -1,4 +1,5 @@
 Permainan ini adalah sebuah permainan tembak-menembak dengan tema luar angkasa (space shooting game) di mana pemain mengendalikan sebuah alien (Rocket) yang terletak di bagian bawah layar dan harus menghindari atau menghancurkan meteor (Bomb) yang jatuh dari atas layar. Pemain dapat menembak peluru (Shot) untuk menghancurkan bom yang jatuh. Setiap kali bom hancur, pemain mendapatkan poin. Permainan berakhir ketika roket pemain bertabrakan dengan bom, yang menyebabkan ledakan dan status permainan berubah menjadi game over.
+
 Di awal permainan, roket pemain muncul di bagian bawah layar dan beberapa meteor jatuh dari atas. Pemain bisa menggerakkan roket secara horizontal mengikuti posisi mouse. Pemain bisa menembakkan peluru dengan mengklik tombol kiri mouse. Peluru ini bergerak ke atas dan menghancurkan bom yang terkena. Setiap kali bom dihancurkan, pemain mendapatkan satu poin. Namun,  ada batasan jumlah peluru yang bisa ditembakkan, yaitu MAX_SHOTS sebesar 10 peluru setiap kali sistem spawn musuh.
+
 Meteor yang jatuh akan terus bergerak ke bawah, dan semakin banyak poin yang didapatkan, semakin cepat bom jatuh. Kecepatan meteor meningkat seiring dengan skor pemain. Setiap kali meteor bertabrakan dengan pemain, pemain akan meledak dan permainan berakhir. Setelah game over, pemain bisa mengklik untuk memulai permainan kembali.
-# UAS
