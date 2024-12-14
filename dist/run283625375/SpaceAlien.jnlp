@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="SpaceAlien.jnlp">
+  <information>
+    <title>SpaceAlien</title>
+    <vendor>asus</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="SpaceAlien.jar" size="10433994" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="spacealien.SpaceAlien"  name="SpaceAlien" />
+  <update check="always"/>
+</jnlp>
