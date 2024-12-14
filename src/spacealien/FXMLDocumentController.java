@@ -122,3 +122,21 @@ public class Universe extends GameEntity {
         if (opacity > 0.5) opacity = 0.5;
     }
 
+
+    @Override
+    void update() {
+        if (opacity > 0.8) opacity -= 0.01;
+        if (opacity < 0.1) opacity += 0.01;
+        y += 20;
+        if (y > FXMLDocumentController.HEIGHT) {
+            setActive(false);
+        }
+    }
+
+    @Override
+    void render(GraphicsContext gc) {
+        gc.setFill(Color.rgb(r, g, b, opacity));
+        gc.fillOval(x, y, w, h);
+    }
+}
+
