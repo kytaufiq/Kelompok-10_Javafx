@@ -267,3 +267,8 @@ private int distance(int x1, int y1, int x2, int y2) {
     
 }
 
+private void handleKeyboardInput(KeyEvent event) {
+    // Mencegah input keyboard dan menampilkan pesan error
+    event.consume();  // Menahan event agar tidak diproses
+    System.out.println("Error: Keyboard input is not allowed!");  // Tampilkan pesan di konsol
+}
