@@ -19,6 +19,33 @@ import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+public class FXMLDocumentController {
+
+    private static final Random RAND = new Random();
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 600;
+    private static final int PLAYER_SIZE = 60;
+    private final Image PLAYER_IMG = new Image(getClass().getResource("/Assets/player.png").toExternalForm());
+    private final Image EXPLOSION_IMG = new Image(getClass().getResource("/Assets/explosion.png").toExternalForm());
+    static final int EXPLOSION_W = 128;
+    static final int EXPLOSION_ROWS = 3;
+    static final int EXPLOSION_COL = 3;
+    static final int EXPLOSION_H = 128;
+    static final int EXPLOSION_STEPS = 15;
+
+    private final Image BOMBS_IMG[] = {
+            new Image(getClass().getResource("/Assets/1.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/2.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/3.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/4.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/5.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/6.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/7.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/8.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/9.png").toExternalForm()),
+            new Image(getClass().getResource("/Assets/10.png").toExternalForm()),
+    };
+
 public abstract class GameEntity {
     protected int x;
     protected int y;
